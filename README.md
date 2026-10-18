@@ -31,3 +31,13 @@ Real SVG stroke paths + 4-form morph, characters in Rive, vowels (fatha/damma/ka
 
 ## Known limits
 Writing animation is a reveal of the font glyph, not stroke-by-stroke. Test visually on a real phone, especially Arabic joining between coloured letters.
+
+## v2 additions
+Canvas tracing for any letter/form (coverage check, no stroke order yet), Sounds screen (short + long vowels), 31 words, animated SVG cat, connector-style forms, mistake tracking that makes Toss repeat weak letters ("Practice" on the Island). Vowel clips: `v<letter>_<0-6>.mp3`.
+
+## Android app without Android Studio (GitHub builds it for you)
+1. Edit `appId` in `capacitor.config.json` (for example `com.yourname.arabicletterisland`); it must be unique for the Play Store.
+2. Push to `main`. Open Actions > "Build Android APK" > latest run > Artifacts > download `arabic-letter-island-apk`.
+3. Unzip, copy `app-debug.apk` to your phone and install it (allow "install unknown apps").
+4. For the Play Store you need a signed release AAB: create a keystore, store it as GitHub secrets, and change the last build step to `./gradlew bundleRelease` plus signing. Add the Play Billing plugin for a one-time unlock.
+Note: recorded audio files are more reliable than browser TTS inside the Android WebView.
